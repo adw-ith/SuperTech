@@ -3,7 +3,8 @@
 {% for item in items %}
 <div>
   <h3>{{item.name}}</h3>
-  <h4>{{item.price}}</h4>
+  <h4>&#8377;{{item.price}}</h4>
+  <!-- &#x20A8; -->
   <b>{{item.category}}</b>
   <i>{{item.created}}</i>
   <div>
@@ -11,7 +12,11 @@
     <li>{{tag}}</li>
     {% endfor %}
   </div>
-  <img src="{{ item.image.url }}" alt="hello" />
+  <img
+    style="aspect-ratio: 9/16; width: 300px; height: 200px"
+    src="{{ item.image.url }}"
+    alt="hello"
+  />
 </div>
 {% endfor %}
 <br />
