@@ -1,1 +1,18 @@
-{% extends './Basic.html' %} {% block content %} {% endblock %}
+{% extends './Basic.html' %} {% block content %}
+<h1>HEADING</h1>
+{% for item in items %}
+<div>
+  <h3>{{item.name}}</h3>
+  <h4>{{item.price}}</h4>
+  <b>{{item.category}}</b>
+  <i>{{item.created}}</i>
+  <div>
+    {% for tag in item.tags.all %}
+    <li>{{tag}}</li>
+    {% endfor %}
+  </div>
+  <img src="{{ item.image.url }}" alt="hello" />
+</div>
+{% endfor %}
+<br />
+{% endblock %}
