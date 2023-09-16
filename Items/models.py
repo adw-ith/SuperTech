@@ -10,8 +10,11 @@ class Category(models.Model):
 class Tags(models.Model):
     name = models.CharField(max_length=200)
 
+
+    def __str__(self):
+        return self.name
+
 class Items(models.Model):
-    Id  = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places= True)
     image = models.ImageField(blank=True ) 
@@ -21,3 +24,7 @@ class Items(models.Model):
 
     class Meta:
         ordering = ['-created']
+
+
+    def __str__(self):
+        return self.name
