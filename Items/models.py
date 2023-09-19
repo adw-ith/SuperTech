@@ -21,11 +21,12 @@ class DisplayImages(models.Model):
 class Items(models.Model):
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places= True)
+    description = models.TextField(null = True , blank = True)
     image = models.ImageField(upload_to= 'static/itemimages') 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tags, blank = True)
     created = models.DateTimeField(auto_now_add=True)
-    disp_imgs = models.ManyToManyField(DisplayImages)
+    disp_imgs = models.ManyToManyField(DisplayImages, blank = True)
 
     class Meta:
         ordering = ['-created']
