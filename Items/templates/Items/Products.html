@@ -1,10 +1,35 @@
 {% extends './Basic.html' %} {% block content %}
-<h1>HEADING</h1>
-{% for item in items %}
-<div>
+<h1>PRODUCTS</h1>
+<div class="row position-relative d-flex justify-content-center">
+  {% for item in items %}
+
+  <div class="col-3 p-4" onclick="">
+    <div class="img-holder">
+      <img
+        style="width: 100%; aspect-ratio: 1.5; object-fit: cover"
+        src="{{item.image.url}}"
+        alt=""
+      />
+    </div>
+    <div class="details p-1">
+      <h5>
+        {{item.name}} {{" "}}
+        <span class="category">{{item.category}}</span>
+      </h5>
+      <h6>&#8377; {{item.price}}</h6>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- <div class="over position-absolute top-0 w-50">
+    <img src="/static/itemimages/images_9.jpeg" class="w-100" alt="" />
+  </div> -->
+</div>
+
+<br />
+{% endblock %}
+<!-- <div>
   <h3>{{item.name}}</h3>
   <h4>&#8377;{{item.price}}</h4>
-  <!-- &#x20A8; -->
   <b>{{item.category}}</b>
   <i>{{item.created}}</i>
   <div>
@@ -17,7 +42,4 @@
     src="{{ item.image.url }}"
     alt="hello"
   />
-</div>
-{% endfor %}
-<br />
-{% endblock %}
+</div> -->
